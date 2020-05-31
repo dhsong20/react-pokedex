@@ -1,11 +1,15 @@
 import React from 'react';
+import ListView from './ListView'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import '../css/styles.css';
 
 function App() {
   return (
-    <div className="App">
-      hello
-    </div>
+    <Router>
+      <Route path="/" component={ListView}></Route>
+
+    </Router>
   );
 }
 
