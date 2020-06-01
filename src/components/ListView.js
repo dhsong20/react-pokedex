@@ -10,17 +10,19 @@ function ListView() {
     async function fetchPokemon() {
       var data = await fetch("https://pokeapi.co/api/v2/pokemon").then(response => response.json())
       
-      setPokemon({data})
+      setPokemon(data.results)
     }
 
     fetchPokemon()
   }, [])
 
 
+
   if (pokemon) {
+    console.log(pokemon)
     return (
       <body>
-        <Pokedex data={["pikachu", "charmander", "bulbasaur", "squirtle"]}></Pokedex>
+        <Pokedex data={pokemon}></Pokedex>
       </body>
     )   
   } else {

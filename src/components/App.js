@@ -7,7 +7,9 @@ import '../css/styles.css';
 function App() {
   return (
     <Router>
-      <Route path="/" component={ListView}></Route>
+      <Route path="/">
+        <ListView />
+      </Route>
 
     </Router>
   );

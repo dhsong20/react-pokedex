@@ -21,9 +21,10 @@ function Pokedex(props) {
     if (e !== "") {
       
       var searchedPokemon = pokemonData.filter(pokemon => {
-        // console.log(pokemon, e, pokemon.includes(e))
-        return pokemon.includes(e)
+        // console.log(pokemon, e, pokemon.name.includes(e))
+        return pokemon.name.includes(e)
       })
+      console.log(searchedPokemon)
       setFilterData(searchedPokemon)
     } else {
       setFilterData(props.data)
@@ -33,12 +34,13 @@ function Pokedex(props) {
   const populatePokemon = (data) => {
     var pokemonList = data.map((pokemon) => 
       <div class="pokemon">
-        {pokemon}
+        {pokemon.name}
       </div>
     )
     return pokemonList
   }
 
+  
   return (
     
     <div class="pokedexWrapper">
@@ -52,6 +54,7 @@ function Pokedex(props) {
 
       </div>
     </div>
+    
   );
 }
 
