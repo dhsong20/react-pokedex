@@ -5,18 +5,19 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { fetchReducer, fetchInitState, cacheReducer } from './redux/reducer';
+import { fetchReducer, detailsReducer, cacheReducer } from './redux/reducer';
 import thunk from 'redux-thunk';
 
 const allReducer = combineReducers({
   fetchReducer,
+  detailsReducer,
   cacheReducer
 })
 
 // const middleWare = [thunk, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()]
 
 const middleWare = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-const reduxStore = createStore(allReducer, fetchInitState, middleWare)
+const reduxStore = createStore(allReducer, middleWare)
 
 
 ReactDOM.render(

@@ -11,12 +11,20 @@ import '../css/styles.css';
 function App(props) {
 
   useEffect(() => {
+    // var limit = 151
+    // while limit 
     props.fetchPokemon("https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0")
   }, []);
 
   const fetchState = useSelector(state => state.fetchReducer)
   const pokeData = fetchState.data
-  // console.log(pokeData)
+  console.log(pokeData)
+
+  // if (pokeData) {
+  //   while (pokeData.next) {
+  //     props.fetchPokemon(pokeData.next)
+  //   }
+  // }
 
   // fetchPokemon("https://pokeapi.co/api/v2/pokemon")
   

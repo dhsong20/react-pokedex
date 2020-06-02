@@ -10,6 +10,7 @@ export const detailsFetch = {
   FINISH_FETCH: "DETAILS_FINISH_FETCH"
 }
 
+
 export const startFetchPokemon = () => ({
   type: pokemonFetch.START_FETCH
 })
@@ -24,7 +25,22 @@ export const finishFetchPokemon = (data) => ({
   payload: data
 })
 
-export const startFetchDetails = (newPokemon) => ({
-  type: pokemonCache.CACHE,
-  payload: newPokemon
+export const startFetchDetails = () => ({
+  type: detailsFetch.START_FETCH,
+})
+
+export const failFetchDetails = (error) => ({
+  type: detailsFetch.FAIL_FETCH,
+  payload: error
+})
+
+export const finishFetchDetails = (data) => ({
+  type: detailsFetch.FINISH_FETCH,
+  payload: data
+})
+
+export const addToCache = (pokeName, pokeDetails) => ({
+  type: "ADD_TO_CACHE",
+  name: pokeName,
+  details: pokeDetails
 })
