@@ -3,6 +3,11 @@
   padding: 0px;
 }
 
+.link {
+  text-decoration: none;
+  color: black;
+}
+
 body {
   /* background-color: #edf1f2; */
   background-color: white;
@@ -52,7 +57,7 @@ input[type=submit] {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
-  gap: 5px;
+  gap: 10px 20px;
   
 }
 
@@ -64,4 +69,46 @@ input[type=submit] {
   background-color: white;
   border-radius: 5px;
   padding: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.pokemon:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 860px) {
+  .pokemonWrapper {
+    padding-top: 20px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 10px 20px;
+    
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .pokemonWrapper {
+    padding-top: 20px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 10px 20px;
+    
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+  body {
+    background-color: aliceblue;
+  }
+  .pokemonWrapper {
+    padding-top: 20px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+    gap: 10px 20px;
+    
+  }
 }
