@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "../css/detailViewStyles.css";
-import { detailsFetch } from "../redux/actions";
 import { zeroPad } from "../helperFuncs";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -31,7 +30,6 @@ function DetailView({ match }) {
   // once our detailed data is found and brough into this component, we can find our needed variables
   if (pokeData) {
     const frontSprite = pokeData.sprites.front_default;
-    const backSprite = pokeData.sprites.back_default;
     const pokeID = zeroPad(pokeData.id, 3);
 
     var types = [];
@@ -122,7 +120,7 @@ function DetailView({ match }) {
         <div class="pokeWrapper">
           <div class="pokeHeader">
             <div class="pokeSprite">
-              <img src={frontSprite}></img>
+              <img alt="sprite" src={frontSprite}></img>
             </div>
             <div class="pokeName">
               {pokeName.charAt(0).toUpperCase() + pokeName.slice(1)}

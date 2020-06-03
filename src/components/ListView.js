@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Pokedex from "./Pokedex";
 import "../css/listViewStyles.css";
 

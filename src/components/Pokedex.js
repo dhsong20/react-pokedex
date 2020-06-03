@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, connect } from "react-redux";
-import { reduxStore } from "../index";
+import { useSelector } from "react-redux";
 import { zeroPad } from "../helperFuncs";
 import Footer from "./Footer";
 import Loader from "react-loader-spinner";
@@ -38,7 +37,7 @@ function Pokedex() {
       <Link class="link" to={`/pokemon/${details.name}`}>
         <div class="pokemon">
           <div>
-            <img src={details.sprites.front_default}></img>
+            <img alt="sprite" src={details.sprites.front_default}></img>
           </div>
           <div>{details.name}</div>
           <div>{zeroPad(details.id, 3)}</div>
