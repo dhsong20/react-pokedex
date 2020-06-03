@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Pokedex from "./Pokedex";
-import "../css/styles.css";
+import "../css/listViewStyles.css";
 
 function ListView() {
  

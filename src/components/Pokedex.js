@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, connect } from 'react-redux';
 import { reduxStore } from '../index';
 
-import "../css/styles.css";
+import "../css/listViewStyles.css";
 
 function Pokedex() {
 
@@ -30,7 +30,9 @@ function Pokedex() {
     return (
       <Link class="link" to={`/pokemon/${details.name}`}>
         <div class="pokemon">
-          <img src={details.sprites.front_default}></img>
+          <div>
+            <img src={details.sprites.front_default}></img>
+          </div>
           { details.name }
         </div>
       </Link>

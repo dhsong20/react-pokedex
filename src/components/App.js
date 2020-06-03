@@ -4,7 +4,8 @@ import DetailView from './DetailView';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector, connect } from 'react-redux';
 import { fetchPokemon } from "../redux/fetchPokemon";
-import '../css/styles.css';
+import ScrollToTop from "../scrollHelper";
+import '../css/listViewStyles.css';
 
 
 
@@ -22,11 +23,13 @@ function App(props) {
 
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={ListView} />
-        <Route exact path="/pokemon/:pokemon" component={DetailView} />
-        <Route> <div>Not Found </div> </Route>
-      </Switch>
+      <ScrollToTop>
+        <Switch>
+          <Route exact path="/" component={ListView} />
+          <Route exact path="/pokemon/:pokemon" component={DetailView} />
+          <Route> <div>Not Found </div> </Route>
+        </Switch>
+      </ScrollToTop>
     </Router>
   );
 }
