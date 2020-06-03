@@ -8,6 +8,11 @@ import "../css/styles.css";
 function Pokedex() {
 
   const cacheData = useSelector(state => state.cacheReducer)
+  const [filter, setFilter] = useState(cacheData)
+
+  useEffect(() => {
+    setFilter(cacheData)
+  }, [cacheData])
 
   console.log(cacheData)
   
@@ -25,26 +30,34 @@ function Pokedex() {
     )
   }
 
-  // const handleChange = (e) => {
-  //   if (e !== "") {
-  //     var searchedPokemon = pokeData.results.filter((pokemon) => {
-  //       // console.log(pokemon, e, pokemon.name.includes(e))
-  //       return pokemon.name.includes(e);
-  //     });
+  const handleChange = (e) => {
+    if (e !== "") {
+      var searchedPokemon = Object.keys(cacheData)
+        .filter((key) => {
+          // console.log(pokemon, e, pokemon.name.includes(e))
+        
+          return (key.includes(e)) 
+        })
+        .reduce((object, key) => {
+          object[key] = cacheData[key]
+          return object
+        }, {})
       
-  //     // filterData = searchedPokemon
-  //     setFilterData(searchedPokemon)
-  //   } else {
-  //     // filterData = pokeData
-  //     setFilterData(pokeData)
-  //   }
-  // };
+      // filterData = searchedPokemon
+      console.log(searchedPokemon)
+      setFilter(searchedPokemon)
+    } else {
+      // filterData = pokeData
+      setFilter(cacheData)
+    }
+  };
 
   const populatePokemon = (data) => {
-    console.log(Object.keys(data).length)
-    if (Object.keys(data).length >= 151) {
+    console.log(data)
+    // console.log(Object.keys(data).length)
+    if (Object.keys(data).length >= 151 || filter) {
       var pokemonList = Object.keys(data).map(function(key, index) {
-        console.log(key)
+        // console.log(key)
         return <EachPokemon data={key}></EachPokemon>
       })
       return pokemonList;
@@ -63,11 +76,11 @@ return (
       <input
         class="searchInput"
         type="text"
-        // onChange={(e) => handleChange(e.target.value)}
+        onChange={(e) => handleChange(e.target.value)}
         
       ></input>
     </div>
-    <div class="pokemonWrapper">{populatePokemon(cacheData)}</div>
+    <div class="pokemonWrapper">{populatePokemon(filter)}</div>
   </div>
 );
 
