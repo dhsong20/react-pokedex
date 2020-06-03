@@ -4,7 +4,7 @@ import { useSelector, connect } from 'react-redux';
 import { reduxStore } from '../index';
 
 import { zeroPad } from "../helperFuncs";
-
+import Footer from './Footer';
 import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../css/listViewStyles.css";
@@ -51,6 +51,7 @@ function Pokedex() {
   }
 
   const handleChange = (e) => {
+    e = e.toLowerCase()
     if (e !== "") {
       var searchedPokemon = Object.keys(cacheData)
         .filter((key) => {
@@ -102,17 +103,21 @@ function Pokedex() {
 
 
 return (
-  <div class="pokedexWrapper">
-    <div class="searchWrapper">
-      <input
-        class="searchInput"
-        type="text"
-        onChange={(e) => handleChange(e.target.value)}
-        
-      ></input>
+  <>
+    <div class="pokedexWrapper">
+      <div class="searchWrapper">
+        <input
+          class="searchInput"
+          type="text"
+          onChange={(e) => handleChange(e.target.value)}
+          placeholder="Search..."
+        ></input>
+      </div>
+      <div class="pokemonWrapper">{populatePokemon(filter)}</div>
+      
     </div>
-    <div class="pokemonWrapper">{populatePokemon(filter)}</div>
-  </div>
+    <Footer class="footer"></Footer>
+  </>
 );
 
 

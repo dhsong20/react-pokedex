@@ -1,0 +1,22 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  font-size: 18px;
+  color: grey;
+}
+
+.madeWith {
+  padding-top: 5px;
+  font-size: 15px;
+  color: grey;
+}

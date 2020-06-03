@@ -5,6 +5,8 @@ import { detailsFetch } from '../redux/actions';
 import { zeroPad } from "../helperFuncs";
 import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Footer from './Footer';
+
 
 
 function DetailView({ match }) {
@@ -171,6 +173,8 @@ function DetailView({ match }) {
           </div>
 
         </div>
+
+        <Footer class="footer"></Footer>
 
       </body>
     )
