@@ -6,8 +6,24 @@ import { zeroPad } from "../helperFuncs";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Footer from "./Footer";
+import { Redirect } from "react-router";
 
 function DetailView({ match }) {
+  // since detailView is called from dynamic routing, we need to make sure that in the case a user types
+  // in the route manually and the pokemon is not found, we go to a 404 page. I'm not sure if this method
+  // of changing state after timeout of 5 seconds is best practice due to many factors...for example if
+  // for some reason the loading of the detail view actually took 6 seconds. I wasn't aware of any other way
+  // to do this. It seems reasonable however.
+  const [redirect, setRedirect] = useState(false);
+
+  useEffect(() => {
+    var t = setTimeout(() => setRedirect(true), 5000);
+
+    return () => {
+      clearTimeout(t);
+    };
+  });
+
   // get pokeName from match and it's detailed data from our redux state cache
   const pokeName = match.params.pokemon;
   const pokeData = useSelector((state) => state.cacheReducer)[pokeName];
@@ -156,6 +172,8 @@ function DetailView({ match }) {
         <Footer class="footer"></Footer>
       </body>
     );
+  } else if (redirect) {
+    return <Redirect to="/404"></Redirect>;
   } else {
     return (
       <div class="loader">
@@ -164,7 +182,7 @@ function DetailView({ match }) {
           color="#00BFFF"
           height={100}
           width={100}
-          timeout={3000} //3 secs
+          timeout={5000} //3 secs
         />
       </div>
     );
