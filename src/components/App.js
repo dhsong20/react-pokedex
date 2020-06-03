@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ListView from './ListView';
 import DetailView from './DetailView';
+import FourOhFour from './FourOhFour';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 import { fetchPokemon } from "../redux/fetchPokemon";
@@ -23,8 +24,8 @@ function App(props) {
         <Switch>
           <Route exact path="/" component={ListView} />
           <Route exact path="/pokemon/:pokemon" component={DetailView} />
-          <Route exact path="/404"><div>Not Found</div></Route>
-          <Route> <div>Not Found</div> </Route>
+          <Route exact path="/404" component={FourOhFour}></Route>
+          <Route component={FourOhFour}></Route>
         </Switch>
       </ScrollToTop>
     </Router>
