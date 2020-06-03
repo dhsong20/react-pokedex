@@ -1,6 +1,6 @@
 * {
   margin: 0px;
-  padding: 0px
+  padding: 0px;
 }
 
 body {
@@ -15,27 +15,30 @@ body {
 }
 
 .footer {
-
   margin-bottom: auto;
   padding: 0px 50px 50px 50px;
 }
 
-.pokeWrapper { 
+.pokeWrapper {
   background-color: white;
   border-radius: 10px;
   margin: 40px 50px 40px 50px;
   padding: 50px;
-
 }
 
 .pokeSprite {
   -webkit-transform: scale(1.5); /* Saf3.1+, Chrome */
-     -moz-transform: scale(1.5); /* FF3.5+ */
-      -ms-transform: scale(1.5); /* IE9 */
-       -o-transform: scale(1.5); /* Opera 10.5+ */
-          transform: scale(1.5);
+  -moz-transform: scale(1.5); /* FF3.5+ */
+  -ms-transform: scale(1.5); /* IE9 */
+  -o-transform: scale(1.5); /* Opera 10.5+ */
+  transform: scale(1.5);
   margin-bottom: 20px;
   /* border: 1px solid black; */
+}
+
+.pokeName {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .pokeHeader {
@@ -44,7 +47,6 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  
 }
 
 .pokeTypes {
@@ -52,12 +54,11 @@ body {
   flex-direction: row;
   margin-top: 10px;
   margin-bottom: 10px;
-
 }
 
 .type {
   border-radius: 5px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 5px;
   width: fit-content;
   margin: 5px;
@@ -67,16 +68,13 @@ body {
   margin-bottom: 2px;
 }
 
-.pokeFooter { 
-
-
+.pokeFooter {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-
-.pokeActions{
+.pokeActions {
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -85,9 +83,8 @@ body {
   text-align: center;
 }
 
-.actions { 
+.actions {
   margin-top: 10px;
-
 }
 
 .actionElement {
@@ -103,4 +100,3 @@ body {
     justify-content: space-evenly;
   }
 }
-

@@ -24,7 +24,7 @@ body {
   padding: 30px;
   margin: 20px auto 20px auto;
   width: 85vw;
-  background-color: aliceblue; 
+  background-color: aliceblue;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -34,9 +34,6 @@ body {
 .footer {
   padding: 50px;
   margin-bottom: auto;
-
-
-  
 }
 
 .searchWrapper {
@@ -52,18 +49,17 @@ body {
   padding: 5px;
 } */
 
-
-input[type=text] {
+input[type="text"] {
   width: 50%;
   padding: 5px;
 }
 
-input[type=submit] {
-  padding:6px 15px;
-  background: lightgreen; 
-  border:0 none;
-  cursor:pointer;
-  border-radius: 5px; 
+input[type="submit"] {
+  padding: 6px 15px;
+  background: lightgreen;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 5px;
   margin-left: 5px;
 }
 
@@ -73,7 +69,6 @@ input[type=submit] {
   width: 100%;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 15px 15px;
-  
 }
 
 .pokemon {
@@ -84,7 +79,7 @@ input[type=submit] {
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
   padding: 5px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   /* transition: all .2s ease-in-out; */
   transition: border 0.5s;
 }
@@ -100,7 +95,7 @@ input[type=submit] {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, minmax(150px, 1fr));
-    gap: 15px 15px;    
+    gap: 15px 15px;
   }
 }
 
@@ -110,10 +105,9 @@ input[type=submit] {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(2, minmax(150px, 1fr));
-    gap: 15px 15px;    
+    gap: 15px 15px;
   }
 }
-
 
 @media screen and (max-width: 450px) {
   body {
@@ -124,7 +118,7 @@ input[type=submit] {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(1, minmax(150px, 1fr));
-    gap: 15px 15px;    
+    gap: 15px 15px;
   }
 }
 
