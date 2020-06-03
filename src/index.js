@@ -18,7 +18,7 @@ const allReducer = combineReducers({
 // create middleware variable
 const middleWare = compose(
   applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 // create our store with reducers and middleware variable
