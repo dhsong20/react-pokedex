@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../css/detailViewStyles.css';
 import { detailsFetch } from '../redux/actions';
+import { zeroPad } from "../helperFuncs";
 import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -19,7 +20,7 @@ function DetailView({ match }) {
 
     const frontSprite = pokeData.sprites.front_default
     const backSprite = pokeData.sprites.back_default
-    const pokeID = pokeData.id
+    const pokeID = zeroPad(pokeData.id, 3)
 
     var types = []
     pokeData.types.map(element => {

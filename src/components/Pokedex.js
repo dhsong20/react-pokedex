@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector, connect } from 'react-redux';
 import { reduxStore } from '../index';
 
+import { zeroPad } from "../helperFuncs";
+
 import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../css/listViewStyles.css";
@@ -25,6 +27,8 @@ function Pokedex() {
   }
   loaded()
 
+  
+
 
   const EachPokemon = ( details ) => {
     details = details.details
@@ -35,7 +39,12 @@ function Pokedex() {
           <div>
             <img src={details.sprites.front_default}></img>
           </div>
-          { details.name }
+          <div>
+            { details.name }
+          </div>
+          <div>
+            { zeroPad(details.id, 3) }
+          </div>
         </div>
       </Link>
     )
