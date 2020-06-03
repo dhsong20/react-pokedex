@@ -17,7 +17,7 @@ const allReducer = combineReducers({
 // const middleWare = [thunk, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()]
 
 const middleWare = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-const reduxStore = createStore(allReducer, middleWare)
+export const reduxStore = createStore(allReducer, middleWare)
 
 
 ReactDOM.render(

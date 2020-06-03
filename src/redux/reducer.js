@@ -44,19 +44,16 @@ export const detailsReducer = (state = detailsInitState, action) => {
   }
 }
 
-export const cacheInitState = {
-  cache: {}
-}
 
-export const cacheReducer = (state = cacheInitState, action) => {
+export const cacheReducer = (state = {}, action) => {
   switch (action.type) {
     case "ADD_TO_CACHE":
       const pokeName = action.name
-      if (!Object.keys(state.cache).includes(pokeName)) {
+      if (!Object.keys(state).includes(pokeName)) {
         console.log("new entry in cache")
-        state.cache[pokeName] = action.details
+        state[pokeName] = action.details
       }
-      return state
+      return {...state}
     default:
       return state
   }

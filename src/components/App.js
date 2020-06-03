@@ -14,13 +14,10 @@ function App(props) {
     props.fetchPokemon("https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0")
   }, []);
 
-  const fetchState = useSelector(state => state.fetchReducer)
-  const pokeData = fetchState.data
-  console.log(pokeData)
   
   
 
-  const cacheState = useSelector(state => state.cacheReducer)
+  // const cacheState = useSelector(state => state.cacheReducer)
   // console.log(cacheState)
 
   return (
