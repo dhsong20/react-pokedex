@@ -8,6 +8,13 @@
   color: black;
 }
 
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 body {
   /* background-color: #edf1f2; */
   background-color: white;

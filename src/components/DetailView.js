@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../css/detailViewStyles.css';
 import { detailsFetch } from '../redux/actions';
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 
 function DetailView({ match }) {
 
@@ -172,9 +175,18 @@ function DetailView({ match }) {
     )
   } else {
     return (
-      <div>
-        loading...
-      </div>
+      <div class="loader">
+          <Loader
+          
+            
+            type="ThreeDots"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+  
+          />
+        </div>
     )
   }
 }

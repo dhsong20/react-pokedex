@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector, connect } from 'react-redux';
 import { reduxStore } from '../index';
 
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "../css/listViewStyles.css";
 
 function Pokedex() {
@@ -73,8 +75,17 @@ function Pokedex() {
       return pokemonList;
     } else {
       return (
-        <div>
-          loading...
+        <div class="loader">
+          <Loader
+          
+            
+            type="ThreeDots"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+  
+          />
         </div>
       )
     }

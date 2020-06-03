@@ -53,9 +53,6 @@ export const cacheReducer = (state = {}, action) => {
         console.log("new entry in cache")
         state[pokeName] = action.details
       }
-      else{
-        console.log("already in state")
-      }
       return {...state}
     default:
       return state

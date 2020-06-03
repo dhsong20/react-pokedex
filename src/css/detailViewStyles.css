@@ -7,6 +7,13 @@ body {
   background-color: aliceblue;
 }
 
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .pokeWrapper { 
   background-color: white;
   border-radius: 10px;
@@ -62,6 +69,7 @@ body {
   justify-content: space-evenly;
 }
 
+
 .pokeActions{
   padding-top: 10px;
   padding-bottom: 10px;
@@ -80,4 +88,13 @@ body {
   padding-bottom: 10px;
 }
 
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 660px) {
+  .pokeFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
 
