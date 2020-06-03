@@ -7,24 +7,31 @@ import "../css/styles.css";
 
 function Pokedex() {
 
+  var fetched = false 
+
   const cacheData = useSelector(state => state.cacheReducer)
   const [filter, setFilter] = useState(cacheData)
 
   useEffect(() => {
     setFilter(cacheData)
   }, [cacheData])
-
-  console.log(cacheData)
   
+  const loaded = () => {
+    if (Object.keys(cacheData).length >= 151) {
+      fetched = !fetched
+    }
+  }
+  loaded()
 
 
-
-  const EachPokemon = ( pokemon ) => {
-    // console.log("each", pokemon)
+  const EachPokemon = ( details ) => {
+    details = details.details
+    // console.log("each", details)
     return (
-      <Link class="link" to={`/pokemon/${pokemon.data}`}>
+      <Link class="link" to={`/pokemon/${details.name}`}>
         <div class="pokemon">
-          { pokemon.data }
+          <img src={details.sprites.front_default}></img>
+          { details.name }
         </div>
       </Link>
     )
@@ -53,12 +60,13 @@ function Pokedex() {
   };
 
   const populatePokemon = (data) => {
-    console.log(data)
+    // console.log(data)
     // console.log(Object.keys(data).length)
-    if (Object.keys(data).length >= 151 || filter) {
+    
+    if (fetched) {
       var pokemonList = Object.keys(data).map(function(key, index) {
         // console.log(key)
-        return <EachPokemon data={key}></EachPokemon>
+        return <EachPokemon details={data[key]}></EachPokemon>
       })
       return pokemonList;
     } else {
@@ -69,6 +77,7 @@ function Pokedex() {
       )
     }
   }
+
 
 return (
   <div class="pokedexWrapper">

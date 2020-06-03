@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import '../css/styles.css';
+import { detailsFetch } from '../redux/actions';
 
-function DetailView({ match, location }) {
-  return (
-    <>
-      <div>Match Props:</div>
-      <div>
-        {JSON.stringify(match, null, 2)}
-      </div>
+function DetailView({ match }) {
 
-      <div>Location props:</div>
+  const pokeName = match.params.pokemon
+  const pokeData = useSelector(state => state.cacheReducer)[pokeName]
+  
+  console.log(pokeData)
+  if (pokeData) {
+    return (
       <div>
-        {JSON.stringify(location, null, 2)}
+        {pokeData.name}
+        
       </div>
-    </>
-  );
+    )
+  } else {
+    return (
+      <div>
+        loading...
+      </div>
+    )
+  }
 }
 
 export default DetailView;
