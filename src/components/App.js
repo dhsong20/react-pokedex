@@ -1,21 +1,18 @@
-import React, { useEffect } from 'react';
-import ListView from './ListView';
-import DetailView from './DetailView';
-import FourOhFour from './FourOhFour';
+import React, { useEffect } from "react";
+import ListView from "./ListView";
+import DetailView from "./DetailView";
+import FourOhFour from "./FourOhFour";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { fetchPokemon } from "../redux/fetchPokemon";
 import ScrollToTop from "../scrollHelper";
-import '../css/listViewStyles.css';
-
-
+import "../css/listViewStyles.css";
 
 function App(props) {
-
-  // only fetch call in entire pokedex executed upon loading. 
+  // only fetch call in entire pokedex executed upon loading.
 
   useEffect(() => {
-    props.fetchPokemon("https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0")
+    props.fetchPokemon("https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0");
   }, []);
 
   return (
@@ -33,8 +30,7 @@ function App(props) {
 }
 
 const mapActionsToProps = {
-  fetchPokemon
+  fetchPokemon,
 };
 
 export default connect(null, mapActionsToProps)(App);
-
