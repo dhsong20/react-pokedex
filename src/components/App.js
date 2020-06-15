@@ -8,6 +8,8 @@ import { fetchPokemon } from "../redux/fetchPokemon";
 import ScrollToTop from "../scrollHelper";
 import "../css/listViewStyles.css";
 
+//git branch testing
+
 function App(props) {
   // only fetch call in entire pokedex executed upon loading.
 
